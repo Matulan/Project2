@@ -1,11 +1,10 @@
-const Car = require("../models/Car.model");
+const Request = require("../models/Request.model");
 
 const router = require("express").Router();
 
-router.get("/car", (req, res, next) => {
-    res.render("car")
+router.get("/request", (req, res, next) => {
+    res.render("request")
 })
-
 router.post("/car/create", (req, res, next) => {
     const carDetails = {
         vehiclename: req.body.vehiclename,
@@ -15,10 +14,6 @@ router.post("/car/create", (req, res, next) => {
         passengers: req.body.passengers,
         picture: req.body.picture,
         description: req.body.description,
-        engine: req.body.engine,
-        bhp: req.body.bhp,
-        zerotohundred: req.body.zerotohundred,
-        topspeed: req.body.topspeed
     };
 
     Car.create(carDetails)
@@ -26,7 +21,7 @@ router.post("/car/create", (req, res, next) => {
             res.redirect("/car");
         })
         .catch((error) => {
-            console.log("Error creating boat in the DB", error);
+            console.log("Error creating car in the DB", error);
             next(error);
         })
 });
@@ -38,8 +33,7 @@ router.get('/car', (req, res, next) => {
         console.log('Error while creating the car');
         next(err);
       });
-  });
-
+  }); 
 
 router.get('/car/:carId', (req, res, next) => {
     const { carId } = req.params;
