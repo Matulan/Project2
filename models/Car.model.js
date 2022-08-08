@@ -9,8 +9,15 @@ const CarSchema = new Schema(
         price: Number,
         size: Number,
         passengers: Number,
-        picture: String,
-        description: String
+        picture: {
+        type: String,
+        },
+        description: String,
+        engine: String,
+        bhp: String,
+        zerotohundred: String,
+        topspeed: String,
+
     },
 );
 

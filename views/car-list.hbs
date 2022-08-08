@@ -1,0 +1,10 @@
+<h1>Cars</h1>
+
+{{#each cars}}
+  <div>
+    <h3>{{this.vehiclename}}</h3>
+    <p>By: {{this.price}}</p>
+    <img src="{{this.picture}}" alt="car-picture">
+    <a href='/cars/{{this._id}}'>See details</a>
+  </div>
+{{/each}}
