@@ -1,4 +1,5 @@
 body {
+  background-image: url("/public/images/Background.jpg");
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -9,4 +10,7 @@ a {
 
 h1 {
   color: 15px;
+  
 }
+
+
