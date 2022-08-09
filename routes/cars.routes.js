@@ -32,8 +32,17 @@ router.post("/car/create", (req, res, next) => {
 });
 
 router.get('/car-list', (req, res, next) => {
-    Car.find()
+    Car.find({vehicletype: 'car'})
       .then((allcar) => res.render('car-list', { car: allcar }))
+      .catch((err) => {
+        console.log('Error while creating the car');
+        next(err);
+      });
+  });
+
+router.get('/boat-list', (req, res, next) => {
+    Car.find({vehicletype: 'boat'})
+      .then((allboats) => res.render('boat-list', { boat: allboats }))
       .catch((err) => {
         console.log('Error while creating the car');
         next(err);
@@ -44,6 +53,8 @@ router.get('/car-list', (req, res, next) => {
 router.get('/car/:carId', (req, res, next) => {
     const { carId } = req.params;
     console.log(req.params);
+
+    /* const user = req.session.user */
   
     Car.findById(carId)
       .then((car) => {
@@ -63,7 +74,7 @@ router.get('/car/:carId', (req, res, next) => {
     if(today > new Date(startDate)){
       res.render("car-details", {errorMessage:"Invalid date, please choose right date"})
     } else {
-      res.redirect("/");
+      res.redirect("/login");
     }
   
   });
