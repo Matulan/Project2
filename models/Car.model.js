@@ -7,7 +7,7 @@ const CarSchema = new Schema(
         vehiclename: String,
         vehicletype: String,
         price: Number,
-        size: Number,
+        size: String,
         passengers: Number,
         picture: {
         type: String,
