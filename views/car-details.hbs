@@ -1,4 +1,3 @@
-{{#each car}}
   <h1>{{vehiclename}}</h1>
   <div class="car-detail-container">
     <img src="{{picture}}" alt="car-picture" />
@@ -21,10 +20,9 @@
       <p><span class="float-left">PASSENGERS:</span><span
           class="float-right"
         >{{passengers}}</span></p>
-
     </div>
   </div>
-{{/each}}
+
    {{!--  <a href='/cars/{{_id}}'>See details</a> --}}
       <form action='/search' method='post'>
 

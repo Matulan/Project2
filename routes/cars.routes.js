@@ -29,43 +29,61 @@ router.post("/car/create", (req, res, next) => {
             console.log("Error creating boat in the DB", error);
             next(error);
         })
-});
-
-router.get('/car-list', (req, res, next) => {
-    Car.find({vehicletype: 'car'})
-      .then((allcar) => res.render('car-list', { car: allcar }))
-      .catch((err) => {
-        console.log('Error while creating the car');
-        next(err);
       });
-  });
-
-router.get('/boat-list', (req, res, next) => {
-    Car.find({vehicletype: 'boat'})
-      .then((allboats) => res.render('boat-list', { boat: allboats }))
-      .catch((err) => {
-        console.log('Error while creating the car');
-        next(err);
+      
+      router.get('/car-list', (req, res, next) => {
+        Car.find({vehicletype: 'car'})
+        .then((allcar) => res.render('car-list', { car: allcar }))
+        .catch((err) => {
+          console.log('Error while creating the car');
+          next(err);
+        });
       });
-  });
-
-
-router.get('/car/:carId', (req, res, next) => {
-    const { carId } = req.params;
-    console.log(req.params);
-
-    /* const user = req.session.user */
-  
-    Car.findById(carId)
-      .then((car) => {
+      router.get('/car/:carId', (req, res, next) => {
+          const { carId } = req.params;
+          console.log(req.params);
+      
+          /* const user = req.session.user */
+        
+          Car.findById(carId)
+            .then((car) => {
+              console.log(car);
+              res.render('car-details', car);
+            })
+            .catch((err) => {
+              console.log(err);
+              next(err);
+            });
+        });
+      //Boat
+      
+      router.get('/boat-list', (req, res, next) => {
+        Car.find({vehicletype: 'boat'})
+        .then((allboats) => res.render('boat-list', { boat: allboats }))
+        .catch((err) => {
+          console.log('Error while creating the car');
+          next(err);
+        });
+      });
+      
+      router.get('/boat/:boatId', (req, res, next) => {
+        const { boatId } = req.params;
+        console.log(req.params);
+        
+        /* const user = req.session.user */
+        
+        Car.findById(boatId)
+        .then((boat) => {
         console.log(car);
-        res.render('car-details', car);
+        res.render('boat-details', boat);
       })
       .catch((err) => {
         console.log(err);
         next(err);
       });
   });
+
+
 
   router.post("/search", (req, res, next) => {
     const {startDate,endDate} = req.body

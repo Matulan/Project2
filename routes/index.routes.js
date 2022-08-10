@@ -10,4 +10,8 @@ router.get("/profile", (req, res, next) => {
   res.render("profile", {user});
 });
 
+router.get("/adventures", (req, res, next) => {
+  const user = req.session.user;
+  res.render("adventures");
+});
 module.exports = router;
