@@ -3,7 +3,6 @@ const Car = require("../models/Car.model");
 const router = require("express").Router();
 
 router.get("/car", (req, res, next) => {
-<<<<<<< HEAD
   res.render("car");
 });
 
@@ -55,11 +54,6 @@ router.get("/car/:carId", (req, res, next) => {
       next(err);
     });
 });
-
-module.exports = router;
-=======
-    res.render("car")
-})
 
 router.post("/car/create", (req, res, next) => {
     const carDetails = {
@@ -153,4 +147,3 @@ router.post("/car/create", (req, res, next) => {
   });
 
 module.exports = router;
->>>>>>> c2a4128acd70fa72a0927b3a1f4795386dd61286

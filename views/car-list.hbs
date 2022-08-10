@@ -1,20 +1,5 @@
 <h1>Cars</h1>
-<div class="car-list-container">
-  {{#car}}
-    <div class="car-container">
-      <img src="{{picture}}" alt="car-picture" />
-      <a href="/car/{{_id}}">{{vehiclename}}</a>
-      <div class="car-price">
-        <span class="price-span">price {{price}}</span>
-        <a class="price-a" href="/car/{{_id}}">More Info</a>
-      </div>
-
-<<<<<<< HEAD
-    </div>
-  {{/car}}
-</div>
 {{! if statement if car renders this, if boat renders this }}
-=======
 <div class="car-list-container">
   {{#each car}}
     <div class="car-container">
@@ -28,5 +13,3 @@
   {{/each}}
 </div>
 
-{{!-- if statement if car renders this, if boat renders this --}}
->>>>>>> c2a4128acd70fa72a0927b3a1f4795386dd61286
