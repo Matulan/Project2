@@ -1,4 +1,4 @@
-{{#car}}
+
   <h1>{{vehiclename}}</h1>
   <div class="car-detail-container">
     <img src="{{picture}}" alt="car-picture" />
@@ -24,7 +24,7 @@
 
     </div>
   </div>
-{{/car}}
+
     </div>
   </div>
 
@@ -36,6 +36,9 @@
 
       <label for='end-date'>End Date</label>
       <input type='date' name='endDate' />
+
+      <input type="text" name="vehiclename" value="{{vehiclename}}" hidden>
+      <input type="number" name="price" value="{{price}}" hidden>
 
       <button type='submit'>Search availability</button>
 

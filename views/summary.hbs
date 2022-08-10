@@ -1,0 +1,17 @@
+<h1>Summary</h1>
+<p>total price: {{totalPrice}}</p>
+<p>Username: {{username}}</p>
+<p>requested car : {{vehiclename}}</p>
+<p>From: {{startDate}}</p>
+<p>To: {{endDate}}</p>
+
+<form action="/request" method="post">
+  <input hidden type="text" name="vehiclename" value="{{vehiclename}}">
+  <input hidden type="text" name="username" value="{{username}}">
+  <input hidden type="date" name="startDate" value="{{startDate}}">
+  <input hidden type="date" name="endDate" value="{{endDate}}">
+  <input hidden type="number" name="totalPrice" value="{{totalPrice}}">
+
+  <button type="submit">Submit request</button>
+
+</form>

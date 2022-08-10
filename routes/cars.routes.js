@@ -87,14 +87,26 @@ router.post("/car/create", (req, res, next) => {
 
 
   router.post("/search", (req, res, next) => {
-    const {startDate,endDate} = req.body
+    const {startDate,endDate, vehiclename, price} = req.body
+    const {username} = req.session.user
   
     let today = new Date()
     if(today > new Date(startDate)){
       res.render("car-details", {errorMessage:"Invalid date, please choose right date"})
-    } else {
-      res.redirect("/login");
-    }
+      return;
+    } 
+    let start = new Date(startDate)
+    let end = new Date(endDate)
+
+    let difference = end - start; 
+    let days = difference / (1000 * 3600 * 24)
+
+    let totalPrice = days * price
+
+    res.render('summary', {totalPrice, endDate, startDate, vehiclename, price, username})
+
+
+
   
   });
 

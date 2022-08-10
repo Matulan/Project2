@@ -30,6 +30,9 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
 
+const requestRoutes = require("./routes/request.routes");
+app.use("/", requestRoutes);
+
 app.use("/", require("./routes/cars.routes"));
 
 

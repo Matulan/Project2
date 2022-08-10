@@ -5,14 +5,14 @@ const Schema = mongoose.Schema;
 const RequestSchema = new Schema(
     {
         vehiclename: String,
-        startdate: String,
-        enddate: String,
-        location: String,
-        contactinformation: String
+        startDate: String,
+        endDate: String,
+        contactinformation: String,
+        totalPrice: Number
     },
 );
 
-const Request = new mongoose.model("Request", RequestSchema);
+const Request = mongoose.model("Request", RequestSchema);
 
 module.exports = Request;
 
