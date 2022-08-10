@@ -62,14 +62,13 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
-          username,
-          password: hashedPassword,
+          username, email, password: hashedPassword
         });
       })
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/profile");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -130,7 +129,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/profile");
       });
     })
 
@@ -152,5 +151,36 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
+router.get("/profile", isLoggedIn, (req, res,next) => {
+  res.render("profile")
+});
+
+router.post("/profile", isLoggedIn, (req, res, next) => {
+const {firstName, lastName, adress, postBox, favoriteCar} = req.body;
+const user = req.session.user;
+
+User.findByIdAndUpdate(user._id, {firstName, lastName, adress, postBox, favoriteCar})
+.then(() => res.redirect("/"))
+.catch((err) => next(err))
+
+})
+
+router.get("/delete-profile", isLoggedIn, (req, res, next) => {
+  const user = req.session.user;
+
+  User.findByIdAndRemove(user._id)
+  .then(() => {
+    req.session.destroy((err) => {
+      if (err) {
+      return res
+        .status(500)
+        .render("auth/logout", { errorMessage: err.message });
+    }
+  })
+})
+.then(() => res.redirect(`/signup`))
+.catch((err) => next(err))
+})
 
 module.exports = router;

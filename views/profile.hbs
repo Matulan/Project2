@@ -1,4 +1,36 @@
 <h1>Welcome to your Profile</h1>
 
-      <label for='start-date'>Start Date</label>
-      <input type='date' name='startDate' />
+<form action="/profile" method="POST" enctype='multipart/form-data' >
+
+  <label> Firstname:
+    <input type="text" name="firstName" />
+  </label>
+
+  <label> Lastname:
+    <input type="text" name="lastName" />
+  </label>
+<br>
+  <label> Adress:
+    <input type="text" name="adress" />
+  </label>
+
+  <label> Postbox:
+    <input type="text" name="postBox" />
+  </label>
+
+  <label> Favorite-car:
+    <input type="text" name="favoritecar" />
+  </label>
+
+<br>
+<button type="submit" >Edit Profile</button>
+
+{{!-- <label for='imageUrl'>Picture:</label>
+<input type='file' name='imageUrl' id='imageUrl' class='form-control-file'/> --}}
+
+  </form>
+<a href="/delete-profile">
+  <button>
+    Delete 
+  </button>
+</a>

@@ -1,14 +1,32 @@
 
 <form action="/signup" method="POST">
 
-  <label for='username'>Username</label>
-  <input type='text' name='username' id='username' />
+    <label> email:
+    <input type="text" name="email" />
+  </label>
+  <label> username:
+    <input type="text" name="username">
+  </label>
 
-  <label for='email'>Email</label>
-  <input type='text' name='email' id='email' />
+  {{!-- <label> firstName:
+    <input type="text" name="firstName" />
+  </label>
 
-  <label for='password'>Password</label>
-  <input type='password' name='password' id='password' />
+  <label> lastName:
+    <input type="text" name="lastName" />
+  </label>
+
+  <label> adress:
+    <input type="text" name="adress" />
+  </label>
+
+  <label> postBox:
+    <input type="text" name="firstname" />
+  </label> --}}
+
+  <label> password:
+    <input type="password" name="password" />
+  </label>
 
   <button type='submit'>Signup</button>
 </form>

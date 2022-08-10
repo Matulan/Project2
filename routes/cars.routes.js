@@ -40,6 +40,8 @@ router.post("/car/create", (req, res, next) => {
           next(err);
         });
       });
+
+
       router.get('/car/:carId', (req, res, next) => {
           const { carId } = req.params;
           console.log(req.params);
@@ -56,8 +58,10 @@ router.post("/car/create", (req, res, next) => {
               next(err);
             });
         });
+
+        
       //Boat
-      
+
       router.get('/boat-list', (req, res, next) => {
         Car.find({vehicletype: 'boat'})
         .then((allboats) => res.render('boat-list', { boat: allboats }))
@@ -66,23 +70,25 @@ router.post("/car/create", (req, res, next) => {
           next(err);
         });
       });
-      
       router.get('/boat/:boatId', (req, res, next) => {
         const { boatId } = req.params;
         console.log(req.params);
-        
+    
         /* const user = req.session.user */
-        
+      
         Car.findById(boatId)
-        .then((boat) => {
-        console.log(car);
-        res.render('boat-details', boat);
-      })
-      .catch((err) => {
-        console.log(err);
-        next(err);
-      });
-  });
+          .then((car) => {
+            console.log(car);
+            res.render('boat-details', car);
+          })
+          .catch((err) => {
+            console.log(err);
+            next(err);
+          });
+        });
+
+
+
 
 
 
@@ -104,10 +110,28 @@ router.post("/car/create", (req, res, next) => {
     let totalPrice = days * price
 
     res.render('summary', {totalPrice, endDate, startDate, vehiclename, price, username})
-
-
-
-  
   });
+
+  router.post("/search-boats", (req, res, next) => {
+    const {startDate,endDate, vehiclename, price, passengers, size} = req.body
+    const {username} = req.session.user
+  
+    let today = new Date()
+    if(today > new Date(startDate)){
+      res.render("boat-details", {errorMessage:"Invalid date, please choose right date"})
+      return;
+    } 
+    let start = new Date(startDate)
+    let end = new Date(endDate)
+
+    let difference = end - start; 
+    let days = difference / (1000 * 3600 * 24)
+
+    let totalPrice = days * price
+
+    res.render('summary-boat', {totalPrice, endDate, startDate, vehiclename, price, username, size, passengers})
+  });
+
+
 
 module.exports = router;
