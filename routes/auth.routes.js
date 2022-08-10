@@ -14,17 +14,18 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/signup", isLoggedOut, (req, res) => {
+router.get("/signup", isLoggedOut, (req, res, next) => {
   res.render("auth/signup");
 });
 
-router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+router.post("/signup", isLoggedOut, (req, res, next) => {
+  const { username, email, password } = req.body;
 
-  if (!username) {
-    return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your username.",
+  if (!username || !email) {
+    res.render('auth/signup', {
+      errorMessage: 'All fields are mandatory. Please provide your username and password',
     });
+    return;
   }
 
   if (password.length < 8) {

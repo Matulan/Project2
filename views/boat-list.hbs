@@ -1,0 +1,14 @@
+<h1>Boat</h1>
+
+<div class="boat-list-container">
+  {{#each boat}}
+    <div class="boat-container">
+      <img src="{{this.picture}}" alt="boat-picture" />
+      <a href="/boat/{{this._id}}">{{this.vehiclename}}</a>
+      <div class="boat-price">
+        <span class="price-span">price {{this.price}}</span>
+        <a class="price-a" href="/boat/{{this._id}}">More Info</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

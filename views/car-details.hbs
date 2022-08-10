@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 {{#car}}
+=======
+>>>>>>> c2a4128acd70fa72a0927b3a1f4795386dd61286
   <h1>{{vehiclename}}</h1>
   <div class="car-detail-container">
     <img src="{{picture}}" alt="car-picture" />
@@ -21,7 +24,33 @@
       <p><span class="float-left">PASSENGERS:</span><span
           class="float-right"
         >{{passengers}}</span></p>
+<<<<<<< HEAD
 
     </div>
   </div>
 {{/car}}
+=======
+    </div>
+  </div>
+
+   {{!--  <a href='/cars/{{_id}}'>See details</a> --}}
+      <form action='/search' method='post'>
+
+      <label for='start-date'>Start Date</label>
+      <input type='date' name='startDate' />
+
+      <label for='end-date'>End Date</label>
+      <input type='date' name='endDate' />
+
+      <button type='submit'>Search availability</button>
+
+    {{!-- date --}}
+    {{!-- vehicle input: value = vehiclename --}}
+
+   </form>
+  </div>
+
+  {{#if errorMessage}}
+  <p>{{err}}</p>
+  {{/if}}
+>>>>>>> c2a4128acd70fa72a0927b3a1f4795386dd61286

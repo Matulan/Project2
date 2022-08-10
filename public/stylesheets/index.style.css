@@ -1,0 +1,30 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  
+  a {
+    color: #00b7ff;
+  }
+  
+  h1 {
+    color: 15px;
+  }
+  
+  .body {
+    padding: 0 !important;
+  }
+  
+  .index-container {
+    background: url(https://www.apexluxurycarhire.com/wp-content/themes/template/assets/images/normal-header.jpg)
+      top center no-repeat;
+    background-size: cover;
+    min-height: 120px;
+  }
+  
+  .index-container a {
+    float: right;
+    padding: 20px;
+    color: white;
+    font-size: 18px;
+  }
