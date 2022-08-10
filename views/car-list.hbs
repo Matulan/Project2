@@ -1,12 +1,15 @@
 <h1>Cars</h1>
+<div class="car-list-container">
+  {{#car}}
+    <div class="car-container">
+      <img src="{{picture}}" alt="car-picture" />
+      <a href="/car/{{_id}}">{{vehiclename}}</a>
+      <div class="car-price">
+        <span class="price-span">price {{price}}</span>
+        <a class="price-a" href="/car/{{_id}}">More Info</a>
+      </div>
 
-{{#each cars}}
-  <div>
-    <h3>{{this.vehiclename}}</h3>
-    <p>By: {{this.price}}</p>
-    <img src="{{this.picture}}" alt="car-picture">
-    <a href='/cars/{{this._id}}'>See details</a>
-  </div>
-{{/each}}
-
-{{!-- if statement if car renders this, if boat renders this --}}
+    </div>
+  {{/car}}
+</div>
+{{! if statement if car renders this, if boat renders this }}

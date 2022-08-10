@@ -1,0 +1,36 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  margin: 20px;
+  align-content: space-between;
+}
+
+.boxvertical {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-between;*/
+  height: 300px;
+}
+
+.boxmain{
+  display: flex;
+  flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+      align-items: center;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.bottom-left {
+  position: absolute;
+ top: 8px;
+  right: 16px;
+}
