@@ -97,10 +97,10 @@ router.post("/car/create", (req, res, next) => {
     const {username} = req.session.user
   
     let today = new Date()
-    if(today > new Date(startDate)){
-      res.render("car-details", {errorMessage:"Invalid date, please choose right date"})
-      return;
-    } 
+    // if(today > new Date(startDate)){
+    //   res.render("car-details", {errorMessage:"Invalid date, please choose right date"})
+    //   return;
+    // } 
     let start = new Date(startDate)
     let end = new Date(endDate)
 

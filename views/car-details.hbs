@@ -30,21 +30,21 @@
 
    {{!--  <a href='/cars/{{_id}}'>See details</a> --}}
       <form action='/search' method='post'>
-
-      <label for='start-date'>Start Date</label>
+<div class="availability-container">
+      <label for='start-date' class="margin-top">Start Date</label>
       <input type='date' name='startDate' />
 
-      <label for='end-date'>End Date</label>
+      <label for='end-date' class="margin-top">End Date</label>
       <input type='date' name='endDate' />
 
       <input type="text" name="vehiclename" value="{{vehiclename}}" hidden>
       <input type="number" name="price" value="{{price}}" hidden>
 
-      <button type='submit'>Search availability</button>
+      <button type='submit' class="margin-top">Search availability</button>
 
     {{!-- date --}}
     {{!-- vehicle input: value = vehiclename --}}
-
+</div>
    </form>
   </div>
 

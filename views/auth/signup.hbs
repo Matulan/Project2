@@ -1,12 +1,11 @@
 
-<form action="/signup" method="POST">
-
-    <label> email:
-    <input type="text" name="email" />
-  </label>
-  <label> username:
-    <input type="text" name="username">
-  </label>
+<form action="/signup" method="POST" class="margin-zero">
+<div class="login-container">
+    <label for="email" class="margin-top">E-mail: </label>
+    <input type="text" name="email" id="email" />
+ 
+<label for="username" class="margin-top">Username</label>
+    <input type="text" name="username" id="username" />
 
   {{!-- <label> firstName:
     <input type="text" name="firstName" />
@@ -24,11 +23,11 @@
     <input type="text" name="firstname" />
   </label> --}}
 
-  <label> password:
-    <input type="password" name="password" />
-  </label>
+    <label for="password" class="margin-top">Password</label>
+    <input type="password" name="password" id="password" />
 
-  <button type='submit'>Signup</button>
+  <button type="submit" class="price-button margin-top">Signup</button>
+  </div>
 </form>
 
 {{#if errorMessage}}

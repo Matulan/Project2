@@ -1,5 +1,5 @@
 # Project Name
-
+Dubai Adventures
 <br>
 
 
@@ -38,9 +38,9 @@ Search platform for adventures in Dubai.
 | ---------- | ---------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------- |
 | `GET`      | `/`                                | Main page route.  Renders home `index` 
 view.                 |                                                          |
-| `GET`      | `/cars`                            | cars page route. Renders home `index` 
+| `GET`      | `/car`                            | cars page route. Renders home `index` 
 view.
-| `POST`     | `/cars`                            | Sends cars form data to the server.                         | { type,
+| `POST`     | `/car/create`                            | Sends cars form data to the server.                         | { type,
 information} 
 | `GET`      | `/boats`                           | boats page route. Renders home `index` 
 view.
