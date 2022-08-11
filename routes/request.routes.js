@@ -10,6 +10,7 @@ router.get("/request", (req, res, next) => {
 
 router.post('/request', (req, res, next) =>{
   const {username, vehiclename, startDate, endDate, totalPrice} = req.body
+  const {email}= req.session.user
   Request.create({contactinformation: username, vehiclename, startDate, endDate, totalPrice})
     .then((request,error) => {
       console.log(request)
@@ -25,8 +26,8 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
   from: 'client@gmail.com',
   to: 'matu_25@hotmail.com, boukachni@gmail.com',
-  subject: 'Booking for User ' + username,
-  text: "You have a booking from User " + username + " For " + vehiclename + " from " + startDate + " to " + endDate + " and the price is " + totalPrice
+  subject: 'Booking for User ' + email,
+  text: "You have a booking from User " + email + " For " + vehiclename + " from " + startDate + " to " + endDate + " and the price is " + totalPrice
 };
 // bruke en funksjon fra nodemailer for å sende e-post til brukeren
 transporter.sendMail(mailOptions, function(error, info){
