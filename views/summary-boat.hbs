@@ -1,20 +1,47 @@
-<h1>Summary</h1>
-<p>Username: {{username}}</p>
-<p>Boat-name : {{vehiclename}}</p>
-<p>Boat-size : {{size}}</p>
-<p>Passengers : {{passengers}}</p>
-<p>Total price: {{totalPrice}}</p>
+<div class="login-container">
 
-<p>From: {{startDate}}</p>
-<p>To: {{endDate}}</p>
+  <div class="specification margin-zero">
+    <h2 class="heading">Summary boat</h2>
 
-<form action="/request" method="post">
-  <input hidden type="text" name="vehiclename" value="{{vehiclename}}">
-  <input hidden type="text" name="username" value="{{username}}">
-  <input hidden type="date" name="startDate" value="{{startDate}}">
-  <input hidden type="date" name="endDate" value="{{endDate}}">
-  <input hidden type="number" name="totalPrice" value="{{totalPrice}}">
+<p><span class="float-left">Username:</span><span
+        class="float-right"
+      >{{username}}</span></p>
 
-  <button type="submit">Submit request</button>
+    <p><span class="float-left">Boat-name:</span><span
+        class="float-right"
+      >{{vehiclename}}</span></p>
 
-</form>
+    <p><span class="float-left">size:</span><span
+        class="float-right"
+      >{{size}}</span></p>
+
+    <p><span class="float-left">Passengers:</span><span
+        class="float-right"
+      >{{passengers}}</span></p>
+
+    <p><span class="float-left">Total Price:</span><span
+        class="float-right"
+      >{{totalPrice}}</span></p>
+    
+    <p><span class="float-left">From:</span><span
+        class="float-right"
+      >{{startDate}}</span></p>
+
+    <p><span class="float-left">To:</span><span
+        class="float-right"
+      >{{endDate}}</span></p>
+
+  </div>
+
+  <form action="/request" method="post">
+    <input hidden type="text" name="vehiclename" value="{{vehiclename}}" />
+    <input hidden type="text" name="username" value="{{username}}" />
+    <input hidden type="date" name="startDate" value="{{startDate}}" />
+    <input hidden type="date" name="endDate" value="{{endDate}}" />
+    <input hidden type="number" name="totalPrice" value="{{totalPrice}}" />
+
+    <button type="submit" class="price-button margin-top">Submit request</button>
+
+  </form>
+
+</div>
