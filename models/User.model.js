@@ -11,6 +11,7 @@ const userSchema = new Schema(
     firstName: String,
     lastName: String,
     adress: String,
+    favoritecar: String,
     postBox: String,
     password: String,
     picture: {

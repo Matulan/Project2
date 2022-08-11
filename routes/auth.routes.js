@@ -3,7 +3,6 @@ const router = require("express").Router();
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
 
@@ -52,7 +51,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+        .render("auth/signup", { errorMessage: "Username already taken." });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -62,7 +61,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
       .then((hashedPassword) => {
         // Create a user and save it in the database
         return User.create({
-          username, email, password: hashedPassword
+          username, email, password: hashedPassword, firstName: "", lastName: "", adress: "", postBox: "", favoritecar: "",
         });
       })
       .then((user) => {
@@ -157,10 +156,10 @@ router.get("/profile", isLoggedIn, (req, res,next) => {
 });
 
 router.post("/profile", isLoggedIn, (req, res, next) => {
-const {firstName, lastName, adress, postBox, favoriteCar} = req.body;
+const {firstName, lastName, adress, postBox, favoritecar} = req.body;
 const user = req.session.user;
 
-User.findByIdAndUpdate(user._id, {firstName, lastName, adress, postBox, favoriteCar})
+User.findByIdAndUpdate(user._id, {firstName, lastName, adress, postBox, favoritecar})
 .then(() => res.redirect("/"))
 .catch((err) => next(err))
 
