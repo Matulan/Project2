@@ -90,7 +90,7 @@ router.post("/car/create", (req, res, next) => {
 
 
 
-
+//Utregning av total pris, dagspris ganger X antall dager
 
   router.post("/search", (req, res, next) => {
     const {startDate,endDate, vehiclename, price} = req.body
